@@ -1,4 +1,4 @@
-# ATM Spring Annotation
+# ATM Spring Config
 
 Dependency injection with a layer of indirection.
 

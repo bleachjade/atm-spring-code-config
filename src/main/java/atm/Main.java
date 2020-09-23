@@ -1,14 +1,16 @@
 package atm;
 
+import atm.config.ATMConfig;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("bean.xml");
+                new AnnotationConfigApplicationContext(ATMConfig.class);
 
-        AtmUI atmUI= context.getBean("atmUI", AtmUI.class);
+        ATM atm = context.getBean("atm", ATM.class);
+        AtmUI atmUI = new AtmUI(atm);
         atmUI.run();
     }
 }
